@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-'''Task 1's module.
-'''
+concat = __import__('1-concat').concat
 
+str1 = "egg"
+str2 = "shell"
 
-def concat(str1: str, str2: str) -> str:
-    '''Concatenates two strings.
-    '''
-    return str1 + str2
+print(concat(str1, str2) == "{}{}".format(str1, str2))
+print(concat.__annotations__)
