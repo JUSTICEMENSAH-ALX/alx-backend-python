@@ -1,27 +1,27 @@
 #!/usr/bin/env python3
-""" Coroutine at the same time witha sync """
+""" Tasks """
 import asyncio
 import random
 from typing import List
 
 
-wait_random = __import__('0-basic_async_syntax').wait_random
+task_wait_random = __import__('3-tasks').wait_random
 
 
-async def wait_n(n: int = 0, max_delay: int = 10) -> List[float]:
+async def task_wait_n(n: int = 0, max_delay: int = 10) -> List[float]:
     """
         Args:
             max_delay: max wait
             n: spawn function
 
         Return:
-            float time random
+            multiples tasks
     """
     delays: List[float] = []
-    tasks: List = []
+    tasks: List[asyncio.Task] = []
 
     for _ in range(n):
-        tasks.append(wait_random(max_delay))
+        tasks.append(task_wait_random(max_delay))
 
     for task in asyncio.as_completed((tasks)):
         delay = await task
