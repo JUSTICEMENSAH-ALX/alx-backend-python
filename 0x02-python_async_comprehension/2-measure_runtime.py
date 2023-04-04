@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-""" Async Comprehensions 2 """
+""" Async Comprehensions """
 
 from asyncio import gather
 from time import time
